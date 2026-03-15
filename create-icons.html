@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create RecordSnap Icons</title>
+</head>
+<body>
+    <h1>Creating Icons...</h1>
+    <div id="status"></div>
+    
+    <script>
+        function createIcon(size) {
+            const canvas = document.createElement('canvas');
+            canvas.width = size;
+            canvas.height = size;
+            const ctx = canvas.getContext('2d');
+            
+            // Background gradient
+            const gradient = ctx.createLinearGradient(0, 0, size, size);
+            gradient.addColorStop(0, '#2563eb');
+            gradient.addColorStop(1, '#3b82f6');
+            ctx.fillStyle = gradient;
+            
+            // Rounded rectangle
+            const radius = size * 0.15;
+            ctx.beginPath();
+            ctx.moveTo(radius, 0);
+            ctx.lineTo(size - radius, 0);
+            ctx.quadraticCurveTo(size, 0, size, radius);
+            ctx.lineTo(size, size - radius);
+            ctx.quadraticCurveTo(size, size, size - radius, size);
+            ctx.lineTo(radius, size);
+            ctx.quadraticCurveTo(0, size, 0, size - radius);
+            ctx.lineTo(0, radius);
+            ctx.quadraticCurveTo(0, 0, radius, 0);
+            ctx.closePath();
+            ctx.fill();
+            
+            // White circle
+            ctx.fillStyle = 'white';
+            ctx.beginPath();
+            ctx.arc(size/2, size/2, size * 0.25, 0, Math.PI * 2);
+            ctx.fill();
+            
+            // Red dot
+            ctx.fillStyle = '#dc2626';
+            ctx.beginPath();
+            ctx.arc(size/2, size/2, size * 0.15, 0, Math.PI * 2);
+            ctx.fill();
+            
+            return canvas;
+        }
+        
+        async function downloadIcon(size, filename) {
+            const canvas = createIcon(size);
+            const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+        
+        async function createAllIcons() {
+            const status = document.getElementById('status');
+            
+            status.innerHTML = 'Creating icon16.png...<br>';
+            await downloadIcon(16, 'icon16.png');
+            await new Promise(r => setTimeout(r, 500));
+            
+            status.innerHTML += 'Creating icon32.png...<br>';
+            await downloadIcon(32, 'icon32.png');
+            await new Promise(r => setTimeout(r, 500));
+            
+            status.innerHTML += 'Creating icon48.png...<br>';
+            await downloadIcon(48, 'icon48.png');
+            await new Promise(r => setTimeout(r, 500));
+            
+            status.innerHTML += 'Creating icon128.png...<br>';
+            await downloadIcon(128, 'icon128.png');
+            await new Promise(r => setTimeout(r, 500));
+            
+            status.innerHTML += '<br><strong style="color: green;">All icons downloaded!</strong><br>';
+            status.innerHTML += '<br>Now move these 4 PNG files to the "icons" folder in your extension directory.';
+        }
+        
+        // Auto-start
+        window.onload = () => {
+            setTimeout(createAllIcons, 1000);
+        };
+    </script>
+</body>
+</html>

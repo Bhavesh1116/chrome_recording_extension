@@ -1,0 +1,50 @@
+RecordSnap - Icon Setup Instructions
+====================================
+
+STEP 1: Generate Icons
+-----------------------
+1. Open "create-icons.html" in your browser
+2. Wait 1 second - 4 PNG files will download automatically:
+   - icon16.png
+   - icon32.png
+   - icon48.png
+   - icon128.png
+
+STEP 2: Move Icons
+-------------------
+1. Find the downloaded PNG files (usually in Downloads folder)
+2. Move ALL 4 files to the "icons" folder in your extension directory
+3. The "icons" folder already exists in your extension folder
+
+STEP 3: Reload Extension
+-------------------------
+1. Go to chrome://extensions/
+2. Find RecordSnap extension
+3. Click the reload button (circular arrow)
+4. Done! Icon will appear in toolbar
+
+Folder Structure Should Look Like:
+-----------------------------------
+recordsnap-extension/
+├── icons/
+│   ├── icon16.png   ← Move here
+│   ├── icon32.png   ← Move here
+│   ├── icon48.png   ← Move here
+│   └── icon128.png  ← Move here
+├── manifest.json
+├── popup.html
+└── ...
+
+Troubleshooting:
+----------------
+- If icons don't download, check browser's download settings
+- Make sure all 4 files are in the "icons" folder
+- File names must be exact: icon16.png, icon32.png, etc.
+- Reload extension after moving files
+
+Need Help?
+----------
+The icons folder is already created at:
+C:\Users\bhave\web\recordsnap-extension\icons\
+
+Just move the 4 downloaded PNG files there!

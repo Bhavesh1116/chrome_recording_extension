@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RecordSnap Test Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        
+        h1 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 32px;
+        }
+        
+        .subtitle {
+            color: #64748b;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #334155;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+        
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        input[type="checkbox"],
+        input[type="radio"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 12px;
+            margin-top: 30px;
+        }
+        
+        button {
+            flex: 1;
+            padding: 14px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-secondary {
+            background: #e2e8f0;
+            color: #475569;
+        }
+        
+        .btn-secondary:hover {
+            background: #cbd5e1;
+        }
+        
+        .link-section {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 2px solid #e2e8f0;
+        }
+        
+        a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        a:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+        
+        .instructions {
+            background: #f1f5f9;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .instructions h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .instructions ol {
+            margin-left: 20px;
+            color: #475569;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎬 RecordSnap Test Page</h1>
+        <p class="subtitle">Use this page to test your RecordSnap extension</p>
+        
+        <div class="instructions">
+            <h3>📋 How to Test:</h3>
+            <ol>
+                <li>Click the RecordSnap extension icon</li>
+                <li>Click "Start Recording" button</li>
+                <li>Interact with this form (fill fields, click buttons)</li>
+                <li>Click "Stop Recording"</li>
+                <li>Click "Generate Tutorial" to see results!</li>
+            </ol>
+        </div>
+        
+        <form id="testForm">
+            <div class="form-group">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name">
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" placeholder="your@email.com">
+            </div>
+            
+            <div class="form-group">
+                <label for="country">Select Country:</label>
+                <select id="country" name="country">
+                    <option value="">Choose a country</option>
+                    <option value="us">United States</option>
+                    <option value="uk">United Kingdom</option>
+                    <option value="ca">Canada</option>
+                    <option value="au">Australia</option>
+                    <option value="in">India</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label>Interests:</label>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="tech" name="interests" value="tech">
+                    <label for="tech" style="margin: 0;">Technology</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="sports" name="interests" value="sports">
+                    <label for="sports" style="margin: 0;">Sports</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="music" name="interests" value="music">
+                    <label for="music" style="margin: 0;">Music</label>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>Subscription Type:</label>
+                <div class="checkbox-group">
+                    <input type="radio" id="free" name="subscription" value="free">
+                    <label for="free" style="margin: 0;">Free</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="radio" id="premium" name="subscription" value="premium">
+                    <label for="premium" style="margin: 0;">Premium</label>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" placeholder="Type your message here..."></textarea>
+            </div>
+            
+            <div class="button-group">
+                <button type="button" class="btn-primary" onclick="handleSubmit()">Submit Form</button>
+                <button type="button" class="btn-secondary" onclick="handleReset()">Reset Form</button>
+            </div>
+        </form>
+        
+        <div class="link-section">
+            <h3 style="margin-bottom: 15px; color: #334155;">Test Links:</h3>
+            <p><a href="#section1">Go to Section 1</a></p>
+            <p><a href="#section2">Go to Section 2</a></p>
+            <p><a href="https://www.google.com" target="_blank">Open Google (External Link)</a></p>
+        </div>
+    </div>
+    
+    <script>
+        function handleSubmit() {
+            alert('✅ Form submitted successfully!\n\nThis action was recorded by RecordSnap.');
+        }
+        
+        function handleReset() {
+            document.getElementById('testForm').reset();
+            alert('🔄 Form has been reset!');
+        }
+        
+        console.log('RecordSnap Test Page Loaded');
+    </script>
+</body>
+</html>

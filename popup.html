@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RecordSnap</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header-section">
+            <div class="logo-container">
+                <div class="logo-icon"></div>
+            </div>
+            <h1>RecordSnap</h1>
+            <p class="subtitle">Professional Tutorial Recorder</p>
+        </div>
+        
+        <div id="recordingBadge" class="recording-badge" style="display: none;">
+            <span class="rec-dot"></span>
+            <span>RECORDING IN PROGRESS</span>
+        </div>
+
+        <div id="statusPanel" class="status-panel">
+            <div class="status-info">
+                <span class="label">Steps Recorded</span>
+                <span id="stepCounter" class="counter">0</span>
+            </div>
+            <div class="status-indicator-wrapper">
+                <div id="statusIndicator" class="status-indicator"></div>
+                <span id="statusText" class="status-text">Idle</span>
+            </div>
+        </div>
+
+        <div class="button-grid">
+            <button id="startRecording" class="btn btn-primary">
+                <span class="btn-icon">●</span>
+                <span class="btn-text">Start Recording</span>
+            </button>
+            <button id="stopRecording" class="btn btn-danger" disabled>
+                <span class="btn-icon">■</span>
+                <span class="btn-text">Stop Recording</span>
+            </button>
+            <button id="generateTutorial" class="btn btn-success" disabled>
+                <span class="btn-icon">▶</span>
+                <span class="btn-text">Generate Tutorial</span>
+            </button>
+            <button id="clearSteps" class="btn btn-secondary">
+                <span class="btn-icon">×</span>
+                <span class="btn-text">Clear All Steps</span>
+            </button>
+        </div>
+
+        <div class="footer">
+            <p class="footer-text">Made with precision</p>
+        </div>
+    </div>
+    <script src="popup.js"></script>
+</body>
+
+</html>

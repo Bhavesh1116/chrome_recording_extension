@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RecordSnap - Click Detection Test</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        
+        h1 {
+            color: #111827;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+        
+        .subtitle {
+            color: #6b7280;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        
+        .test-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f9fafb;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .test-section h2 {
+            font-size: 18px;
+            color: #374151;
+            margin-bottom: 15px;
+        }
+        
+        .test-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+        }
+        
+        button, .clickable {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+        }
+        
+        .btn-primary {
+            background: #3b82f6;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #2563eb;
+        }
+        
+        .btn-secondary {
+            background: #6b7280;
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: #4b5563;
+        }
+        
+        .clickable-div {
+            background: #10b981;
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 6px;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .clickable-div:hover {
+            background: #059669;
+        }
+        
+        a {
+            display: inline-block;
+            padding: 12px 20px;
+            background: #8b5cf6;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        
+        a:hover {
+            background: #7c3aed;
+        }
+        
+        .icon-button {
+            background: #f59e0b;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .icon-button:hover {
+            background: #d97706;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .counter {
+            background: #eff6ff;
+            border: 2px solid #3b82f6;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .counter h3 {
+            color: #1e40af;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        
+        .counter .count {
+            font-size: 32px;
+            font-weight: 700;
+            color: #3b82f6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>RecordSnap Click Detection Test</h1>
+        <p class="subtitle">Test all types of clickable elements</p>
+        
+        <div class="test-section">
+            <h2>1. Standard Buttons</h2>
+            <div class="test-grid">
+                <button class="btn-primary">Primary Button</button>
+                <button class="btn-secondary">Secondary Button</button>
+                <button class="btn-primary" onclick="alert('Button clicked!')">Alert Button</button>
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <h2>2. Links</h2>
+            <div class="test-grid">
+                <a href="#section1">Internal Link</a>
+                <a href="https://google.com" target="_blank">External Link</a>
+                <a href="javascript:void(0)" onclick="alert('Link clicked!')">JS Link</a>
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <h2>3. Clickable Divs</h2>
+            <div class="test-grid">
+                <div class="clickable-div" onclick="incrementCounter()">Click Me (Div)</div>
+                <div class="clickable-div" role="button" onclick="incrementCounter()">Role Button</div>
+                <div class="clickable-div" style="cursor: pointer;" onclick="incrementCounter()">Cursor Pointer</div>
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <h2>4. Icon Buttons</h2>
+            <div class="test-grid">
+                <button class="icon-button">★</button>
+                <button class="icon-button">♥</button>
+                <button class="icon-button">✓</button>
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <h2>5. Navigation Buttons</h2>
+            <div class="nav-buttons">
+                <button class="btn-primary" onclick="window.history.back()">← Back</button>
+                <button class="btn-primary" onclick="window.history.forward()">Forward →</button>
+                <button class="btn-primary" onclick="window.location.reload()">Reload ↻</button>
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <h2>6. Form Buttons</h2>
+            <form onsubmit="event.preventDefault(); alert('Form submitted!');">
+                <div class="test-grid">
+                    <button type="submit" class="btn-primary">Submit</button>
+                    <button type="button" class="btn-secondary">Button Type</button>
+                    <button type="reset" class="btn-secondary">Reset</button>
+                </div>
+            </form>
+        </div>
+        
+        <div class="counter">
+            <h3>Click Counter</h3>
+            <div class="count" id="clickCount">0</div>
+        </div>
+    </div>
+    
+    <script>
+        let clickCount = 0;
+        
+        function incrementCounter() {
+            clickCount++;
+            document.getElementById('clickCount').textContent = clickCount;
+        }
+        
+        // Add click listener to all buttons
+        document.querySelectorAll('button, a, .clickable-div').forEach(el => {
+            el.addEventListener('click', () => {
+                console.log('Element clicked:', el.tagName, el.textContent);
+            });
+        });
+        
+        console.log('Click test page loaded');
+    </script>
+</body>
+</html>

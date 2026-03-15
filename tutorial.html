@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RecordSnap Tutorial</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="tutorial.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <h1>RecordSnap Tutorial</h1>
+            </div>
+            <div class="actions">
+                <button id="playbackBtn" class="btn primary">Play Tutorial</button>
+                <button id="exportPdfBtn" class="btn primary">Export PDF</button>
+                <button id="printBtn" class="btn secondary">Print</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div id="loading" class="loading-state">
+            <div class="spinner"></div>
+            <p>Loading tutorial...</p>
+        </div>
+
+        <div id="emptyState" class="empty-state" style="display: none;">
+            <div class="empty-icon">No Steps</div>
+            <h2>No steps recorded yet</h2>
+            <p>Open RecordSnap and click "Start Recording" to create your first tutorial.</p>
+        </div>
+
+        <div id="playbackMode" class="playback-mode" style="display: none;">
+            <div class="playback-container">
+                <div class="playback-screen" id="playbackScreen">
+                    <div class="playback-step" id="currentStep"></div>
+                </div>
+                <div class="playback-controls">
+                    <button id="prevBtn" class="control-btn">Previous</button>
+                    <button id="pauseBtn" class="control-btn">Pause</button>
+                    <button id="nextBtn" class="control-btn">Next</button>
+                    <button id="exitPlaybackBtn" class="control-btn">Exit</button>
+                </div>
+                <div class="playback-progress">
+                    <span id="currentStepNum">1</span> / <span id="totalSteps">0</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="tutorialSteps" class="steps-container">
+            <!-- Steps will be injected here -->
+        </div>
+    </main>
+
+    <script src="jspdf.umd.min.js"></script>
+    <script src="tutorial.js"></script>
+</body>
+</html>
